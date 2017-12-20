@@ -1,7 +1,7 @@
 import pytest
 
 from yandex_geocoder import Client
-from yandex_geocoder.exceptions import YamapsCoordsHttpException
+from yandex_geocoder.exceptions import YandexGeocoderHttpException
 
 
 def test_request_ok(requests_mocker):
@@ -9,7 +9,7 @@ def test_request_ok(requests_mocker):
         'https://geocode-maps.yandex.ru/1.x/?geocode=b&format=json',
         json={'response': {'ok': True}})
 
-    assert Client().request('b') == {'ok': True}
+    assert Client.request('b') == {'ok': True}
 
 
 def test_request_fails(requests_mocker):
@@ -18,6 +18,6 @@ def test_request_fails(requests_mocker):
         status_code=400)
 
     with pytest.raises(
-            YamapsCoordsHttpException,
+            YandexGeocoderHttpException,
             message='Non-200 response from yandex geocoder'):
-        Client().request('b')
+        Client.request('b')

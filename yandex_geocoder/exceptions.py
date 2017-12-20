@@ -1,10 +1,10 @@
-class YamapsCoordsException(Exception):
+class YandexGeocoderException(Exception):
     pass
 
 
-class YamapsCoordsHttpException(YamapsCoordsException):
+class YandexGeocoderHttpException(YandexGeocoderException):
     pass
 
 
-class YamapsCoordsAddressNotFound(YamapsCoordsException):
+class YandexGeocoderAddressNotFound(YandexGeocoderException):
     pass
