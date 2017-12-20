@@ -1,7 +1,7 @@
 import pytest
 
-from yamaps_coords import Client
-from yamaps_coords.exceptions import YamapsCoordsHttpException
+from yandex_geocoder import Client
+from yandex_geocoder.exceptions import YamapsCoordsHttpException
 
 
 def test_request_ok(requests_mocker):

@@ -1,9 +1,9 @@
-Yamaps Coords
+Yandex Geocoder
 ===
-Get address coordinates via Yandex maps
+Get address coordinates via Yandex geocoder
 
 Code is impudently stolen from [f213](https://github.com/f213).
 
-[![Build Status](https://travis-ci.org/cryptomaniac512/yamaps-coords.svg?branch=master)](https://travis-ci.org/cryptomaniac512/yamaps-coords)
-[![Coverage Status](https://coveralls.io/repos/github/cryptomaniac512/yamaps-coords/badge.svg?branch=master)](https://coveralls.io/github/cryptomaniac512/yamaps-coords?branch=master)
+[![Build Status](https://travis-ci.org/cryptomaniac512/yandex-geocoder.svg?branch=master)](https://travis-ci.org/cryptomaniac512/yandex-geocoder)
+[![Coverage Status](https://coveralls.io/repos/github/cryptomaniac512/yandex-geocoder/badge.svg?branch=master)](https://coveralls.io/github/cryptomaniac512/yandex-geocoder?branch=master)
 ![Python versions](https://img.shields.io/badge/python-3.5,%203.6-blue.svg)

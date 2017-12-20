@@ -1,6 +1,6 @@
 import requests
 
-from yamaps_coords.exceptions import YamapsCoordsHttpException
+from yandex_geocoder.exceptions import YamapsCoordsHttpException
 
 
 class Client:
