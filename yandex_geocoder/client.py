@@ -7,12 +7,26 @@ from yandex_geocoder.exceptions import (
 
 
 class Client:
+    """Yandex geocoder API client.
+
+    :Example:
+        >>> from yandex_geocoder import Client
+        >>> Client.coordinates('Хабаровск 60 октября 150')
+        ('135.114326', '48.47839')
+
+    """
 
     API_URL = 'https://geocode-maps.yandex.ru/1.x/'
     PARAMS = {'format': 'json'}
 
     @classmethod
     def request(cls, address: str) -> dict:
+        """Requests passed address and returns content of `response` key.
+
+        Raises `YandexGeocoderHttpException` if response's status code is
+        different from `200`.
+
+        """
         response = requests.get(cls.API_URL, params=dict(
             geocode=address, **cls.PARAMS))
 
@@ -24,6 +38,13 @@ class Client:
 
     @classmethod
     def coordinates(cls, address: str) -> typing.Tuple[str, str]:
+        """Returns a tuple of ccordinates (longtitude, latitude) for
+        passed address.
+
+        Raises `YandexGeocoderAddressNotFound` if nothing found for passed
+        address.
+
+        """
         data = cls.request(address)['GeoObjectCollection']['featureMember']
 
         if not data:
