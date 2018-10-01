@@ -27,3 +27,4 @@ deploy:
   password: $PyPiPassword
   on:
     tags: true
+    python: "3.7"
