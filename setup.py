@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     author='Nikita Sivakov',
-    author_email='cryptomaniac.512@gmail.com',
+    author_email='sivakov512@gmail.com',
     description=(
         'Simple library for getting address coordinates via Yandex geocoder'),
     install_requires=['requests'],
@@ -13,8 +13,8 @@ setup(
     packages=['yandex_geocoder'],
     python_requires='>=3.5',
     setup_requires=['setuptools-markdown'],
-    url='https://github.com/cryptomaniac512/yandex-geocoder',
-    version='0.0.4',
+    url='https://github.com/sivakov512/yandex-geocoder',
+    version='0.0.5',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.5',
