@@ -4,7 +4,7 @@ Get address coordinates via Yandex geocoder
 
 [![Build Status](https://travis-ci.org/sivakov512/yandex-geocoder.svg?branch=master)](https://travis-ci.org/sivakov512/yandex-geocoder)
 [![Coverage Status](https://coveralls.io/repos/github/sivakov512/yandex-geocoder/badge.svg?branch=master)](https://coveralls.io/github/sivakov512/yandex-geocoder?branch=master)
-![Python versions](https://img.shields.io/pypi/v/yandex-geocoder.svg)
+![Python versions](https://img.shields.io/pypi/pyversions/yandex-geocoder.svg)
 [![PyPi](https://img.shields.io/pypi/v/yandex-geocoder.svg)](https://pypi.python.org/pypi/yandex-geocoder)
 
 Installation
