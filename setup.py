@@ -16,7 +16,7 @@ setup(
     python_requires='>=3.5',
     setup_requires=['setuptools-markdown'],
     url='https://github.com/sivakov512/yandex-geocoder',
-    version='0.0.5',
+    version='0.0.6',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.5',
