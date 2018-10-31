@@ -5,7 +5,9 @@ setup(
     author_email='sivakov512@gmail.com',
     description=(
         'Simple library for getting address coordinates via Yandex geocoder'),
-    install_requires=['requests'],
+    install_requires=[
+        'requests>=2.20,<3',
+    ],
     keywords='yandex geocoder geo coordinates maps api',
     license='MIT',
     long_description_markdown_filename='README.md',
