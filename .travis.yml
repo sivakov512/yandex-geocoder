@@ -12,11 +12,11 @@ before_install:
   - sudo apt-get install -y pandoc
 
 install:
-  - pip install coveralls tox-travis -r requirements.txt
+  - pip install coveralls -r requirements.txt
 
 script:
   - flake8
-  - tox
+  - coverage run --source yandex_geocoder -m pytest
 
 after_success:
   - coveralls
