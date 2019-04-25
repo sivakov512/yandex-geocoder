@@ -23,7 +23,7 @@ setup(
     packages=["yandex_geocoder"],
     python_requires=">=3.6",
     url="https://github.com/sivakov512/yandex-geocoder",
-    version="0.1.0",
+    version="1.0.0",
     classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.6",
