@@ -23,6 +23,32 @@ from yandex_geocoder import Client
 Client.coordinates('Хабаровск 60 октября 150')  # ('135.114326', '48.47839')
 ```
 
+Development and contribution
+---
+
+* install project dependencies
+```bash
+python setup.py develop
+```
+
+* install linting, formatting and testing tools
+```bash
+pip install -r requirements.txt
+```
+
+* run tests
+```bash
+pytest
+```
+
+* run linters
+```bash
+flake8
+black --check ./
+```
+
+* feel free to contribute!
+
 Credits
 ---
 - [f213](https://github.com/f213)
