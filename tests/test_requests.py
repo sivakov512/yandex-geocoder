@@ -21,6 +21,6 @@ def test_request_fails(requests_mocker):
 
     with pytest.raises(
         YandexGeocoderHttpException,
-        message="Non-200 response from yandex geocoder",
+        match="Non-200 response from yandex geocoder",
     ):
         Client.request("b")

@@ -12,6 +12,6 @@ def test_coordinates_found():
 @pytest.mark.usefixtures("coords_not_found")
 def test_coordinates_not_found():
     with pytest.raises(
-        YandexGeocoderAddressNotFound, message='"some address" not found'
+        YandexGeocoderAddressNotFound, match='"some address" not found'
     ):
         Client.coordinates("some address")
