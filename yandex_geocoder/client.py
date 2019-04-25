@@ -45,8 +45,7 @@ class Client:
         """Returns a tuple of ccordinates (longtitude, latitude) for
         passed address.
 
-        Raises `YandexGeocoderAddressNotFound` if nothing found for passed
-        address.
+        Raises `YandexGeocoderAddressNotFound` if nothing found.
 
         """
         data = cls.request(address)["GeoObjectCollection"]["featureMember"]
