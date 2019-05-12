@@ -22,6 +22,8 @@ Usage example
 ``` python
 from yandex_geocoder import Client
 Client.coordinates('Хабаровск 60 октября 150')  # ('135.114326', '48.47839')
+Client.location(longitude='69.279737', latitude='41.311151') #Узбекистан, Ташкент, сквер Амира Темура
+
 ```
 
 Development and contribution
