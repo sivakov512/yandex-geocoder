@@ -8,3 +8,6 @@ class YandexGeocoderHttpException(YandexGeocoderException):
 
 class YandexGeocoderAddressNotFound(YandexGeocoderException):
     pass
+
+class YandexGeocodeLocationNotFound(YandexGeocoderException):
+    pass
