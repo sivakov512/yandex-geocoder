@@ -36,4 +36,7 @@ jobs:
     - name: Upload coverage
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-      run: coveralls
+        COVERALLS_SERVICE_NAME: "GitHub Actions"
+        COVERALLS_PARALLEL: true
+        COVERALLS_FLAG_NAME: Python ${{ matrix.python-version }}
+      run: CI_BRANCH=${GITHUB_REF#"refs/heads/"} coveralls
