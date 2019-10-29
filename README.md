@@ -2,7 +2,7 @@ Yandex Geocoder
 ===
 Get address coordinates via Yandex geocoder
 
-[![Build Status](https://travis-ci.org/sivakov512/yandex-geocoder.svg?branch=master)](https://travis-ci.org/sivakov512/yandex-geocoder)
+[![Build Status](https://github.com/sivakov512/yandex-geocoder/workflows/Test/badge.svg)](https://github.com/sivakov512/yandex-geocoder)
 [![Coverage Status](https://coveralls.io/repos/github/sivakov512/yandex-geocoder/badge.svg?branch=master)](https://coveralls.io/github/sivakov512/yandex-geocoder?branch=master)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 [![Python versions](https://img.shields.io/pypi/pyversions/yandex-geocoder.svg)](https://pypi.python.org/pypi/yandex-geocoder)
