@@ -1,10 +1,9 @@
-name: Lint and test
+name: Test
 
 on: [push]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -37,6 +36,5 @@ jobs:
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         COVERALLS_SERVICE_NAME: "GitHub Actions"
-        COVERALLS_PARALLEL: true
         COVERALLS_FLAG_NAME: Python ${{ matrix.python-version }}
       run: CI_BRANCH=${GITHUB_REF#"refs/heads/"} coveralls
