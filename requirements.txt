@@ -5,6 +5,7 @@ black==19.3b0
 certifi==2019.9.11
 chardet==3.0.4
 Click==7.0
+coverage==4.5.4
 entrypoints==0.3
 flake8==3.7.8
 flake8-debugger==3.2.0
@@ -23,6 +24,7 @@ pycodestyle==2.5.0
 pyflakes==2.1.1
 pyparsing==2.4.2
 pytest==5.2.2
+pytest-cov==2.8.1
 pytest-mock==1.11.2
 requests==2.22.0
 requests-mock==1.7.0

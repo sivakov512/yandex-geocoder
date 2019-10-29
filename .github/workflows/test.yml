@@ -1,0 +1,40 @@
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.6, 3.7]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install coveralls -r requirements.txt
+
+    - name: Lint with flake8
+      run: flake8
+
+    - name: Check with black
+      run: black --check ./
+
+    - name: Test with pytest
+      run: pytest --cov=yandex_geocoder
+
+    - name: Upload coverage
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        COVERALLS_SERVICE_NAME: "GitHub Actions"
+        COVERALLS_FLAG_NAME: Python ${{ matrix.python-version }}
+      run: CI_BRANCH=${GITHUB_REF#"refs/heads/"} coveralls
