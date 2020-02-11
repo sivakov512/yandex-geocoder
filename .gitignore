@@ -3,6 +3,7 @@
 .cache
 .coverage
 .eggs
+.env
 __pycache__
 build
 dist
