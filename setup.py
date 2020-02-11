@@ -11,9 +11,7 @@ def read(fname):
 setup(
     author="Nikita Sivakov",
     author_email="sivakov512@gmail.com",
-    description=(
-        "Simple library for getting address coordinates via Yandex geocoder"
-    ),
+    description="Simple library for getting address coordinates via Yandex geocoder",
     install_requires=["requests~=2.22"],
     keywords="yandex geocoder geo coordinates maps api",
     license="MIT",
@@ -28,5 +26,6 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
     ],
 )

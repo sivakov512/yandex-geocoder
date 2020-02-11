@@ -29,14 +29,10 @@ class Client:
         different from `200`.
 
         """
-        response = requests.get(
-            cls.API_URL, params=dict(geocode=address, **cls.PARAMS)
-        )
+        response = requests.get(cls.API_URL, params=dict(geocode=address, **cls.PARAMS))
 
         if response.status_code != 200:
-            raise YandexGeocoderHttpException(
-                "Non-200 response from yandex geocoder"
-            )
+            raise YandexGeocoderHttpException("Non-200 response from yandex geocoder")
 
         return response.json()["response"]
 
@@ -51,9 +47,7 @@ class Client:
         data = cls.request(address)["GeoObjectCollection"]["featureMember"]
 
         if not data:
-            raise YandexGeocoderAddressNotFound(
-                '"{}" not found'.format(address)
-            )
+            raise YandexGeocoderAddressNotFound('"{}" not found'.format(address))
 
         coordinates = data[0]["GeoObject"]["Point"]["pos"]  # type: str
         return tuple(coordinates.split(" "))
