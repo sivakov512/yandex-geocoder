@@ -2,9 +2,13 @@ class YandexGeocoderException(Exception):
     pass
 
 
-class YandexGeocoderHttpException(YandexGeocoderException):
+class UnexpectedResponse(YandexGeocoderException):
     pass
 
 
-class YandexGeocoderAddressNotFound(YandexGeocoderException):
+class NothingFound(YandexGeocoderException):
+    pass
+
+
+class InvalidKey(YandexGeocoderException):
     pass

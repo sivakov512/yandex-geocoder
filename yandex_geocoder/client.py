@@ -2,10 +2,7 @@ import typing
 
 import requests
 
-from yandex_geocoder.exceptions import (
-    YandexGeocoderAddressNotFound,
-    YandexGeocoderHttpException,
-)
+from .exceptions import InvalidKey, NothingFound, UnexpectedResponse
 
 
 class Client:
@@ -13,41 +10,44 @@ class Client:
 
     :Example:
         >>> from yandex_geocoder import Client
-        >>> Client.coordinates('Хабаровск 60 октября 150')
+        >>> client = Client("api-key")
+        >>> client.coordinates('Хабаровск 60 октября 150')
         ('135.114326', '48.47839')
 
     """
 
-    API_URL = "https://geocode-maps.yandex.ru/1.x/"
-    PARAMS = {"format": "json"}
+    __slots__ = ("api_key",)
 
-    @classmethod
-    def request(cls, address: str) -> dict:
-        """Requests passed address and returns content of `response` key.
+    api_key: str
 
-        Raises `YandexGeocoderHttpException` if response's status code is
-        different from `200`.
+    def __init__(self, api_key: str):
+        self.api_key = api_key
+
+    def _request(self, address: str) -> dict:
+        response = requests.get(
+            "https://geocode-maps.yandex.ru/1.x/",
+            params=dict(format="json", apikey=self.api_key, geocode=address),
+        )
+
+        if response.status_code == 200:
+            return response.json()["response"]
+        elif response.status_code == 403:
+            raise InvalidKey()
+        else:
+            raise UnexpectedResponse(
+                f"status_code={response.status_code}, body={response.content}"
+            )
+
+    def coordinates(self, address: str) -> typing.Tuple[str, str]:
+        """Returns a tuple of ccordinates (longtitude, latitude) for passed address.
+
+        Raises `NothingFound` if nothing found.
 
         """
-        response = requests.get(cls.API_URL, params=dict(geocode=address, **cls.PARAMS))
-
-        if response.status_code != 200:
-            raise YandexGeocoderHttpException("Non-200 response from yandex geocoder")
-
-        return response.json()["response"]
-
-    @classmethod
-    def coordinates(cls, address: str) -> typing.Tuple[str, str]:
-        """Returns a tuple of ccordinates (longtitude, latitude) for
-        passed address.
-
-        Raises `YandexGeocoderAddressNotFound` if nothing found.
-
-        """
-        data = cls.request(address)["GeoObjectCollection"]["featureMember"]
+        data = self._request(address)["GeoObjectCollection"]["featureMember"]
 
         if not data:
-            raise YandexGeocoderAddressNotFound('"{}" not found'.format(address))
+            raise NothingFound(f'Nothing found for "{address}" not found')
 
         coordinates = data[0]["GeoObject"]["Point"]["pos"]  # type: str
         return tuple(coordinates.split(" "))

@@ -1,15 +1,28 @@
 import json
+from urllib.parse import urlencode
 
 import pytest
 import requests_mock
 
 
 @pytest.fixture
-def mock_response():
+def mock_api():
+    def _encode(geocode: str, api_key: str = "123456") -> str:
+        params = {"format": "json", "apikey": api_key, "geocode": geocode}
+        query = urlencode(params)
+        return f"https://geocode-maps.yandex.ru/1.x/?{query}"
+
     with requests_mock.mock() as _m:
-        yield lambda **kwargs: _m.get(
-            "https://geocode-maps.yandex.ru/1.x/?geocode=b&format=json", **kwargs
+        yield lambda resp, status, **encode_kw: _m.get(
+            _encode(**encode_kw),
+            json=load_fixture(resp) if isinstance(resp, str) else resp,
+            status_code=status,
         )
+
+
+def load_fixture(fixture_name: str) -> dict:
+    with open(f"./tests/fixtures/{fixture_name}.json") as fixture:
+        return json.load(fixture)
 
 
 @pytest.fixture
