@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 import pytest
 
 from yandex_geocoder import (
@@ -12,7 +14,10 @@ def test_returns_found_coordinates(mock_api):
     mock_api("coords_found", 200, geocode="Москва Льва Толстого 16")
     client = Client("well-known-key")
 
-    assert client.coordinates("Москва Льва Толстого 16") == ("37.587093", "55.733969")
+    assert client.coordinates("Москва Льва Толстого 16") == (
+        Decimal("37.587093"),
+        Decimal("55.733969"),
+    )
 
 
 def test_raises_if_coordinates_not_found(mock_api):

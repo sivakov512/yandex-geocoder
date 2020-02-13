@@ -1,4 +1,5 @@
-import typing
+from decimal import Decimal
+from typing import Tuple
 
 import requests
 
@@ -38,8 +39,8 @@ class Client:
                 f"status_code={response.status_code}, body={response.content}"
             )
 
-    def coordinates(self, address: str) -> typing.Tuple[str, str]:
-        """Returns a tuple of ccordinates (longtitude, latitude) for passed address.
+    def coordinates(self, address: str) -> Tuple[Decimal]:
+        """Returns a tuple of coordinates (longtitude, latitude) for passed address.
 
         Raises `NothingFound` if nothing found.
 
@@ -50,4 +51,6 @@ class Client:
             raise NothingFound(f'Nothing found for "{address}" not found')
 
         coordinates = data[0]["GeoObject"]["Point"]["pos"]  # type: str
-        return tuple(coordinates.split(" "))
+        longitude, latitude = tuple(coordinates.split(" "))
+
+        return Decimal(longitude), Decimal(latitude)
