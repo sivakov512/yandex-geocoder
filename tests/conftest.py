@@ -7,7 +7,7 @@ import requests_mock
 
 @pytest.fixture
 def mock_api():
-    def _encode(geocode: str, api_key: str = "123456") -> str:
+    def _encode(geocode: str, api_key: str = "well-known-key") -> str:
         params = {"format": "json", "apikey": api_key, "geocode": geocode}
         query = urlencode(params)
         return f"https://geocode-maps.yandex.ru/1.x/?{query}"

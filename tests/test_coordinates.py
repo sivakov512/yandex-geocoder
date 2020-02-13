@@ -9,38 +9,38 @@ from yandex_geocoder import (
 
 
 def test_returns_found_coordinates(mock_api):
-    mock_api("coords_found", 200, geocode="some address")
-    client = Client("123456")
+    mock_api("coords_found", 200, geocode="Москва Льва Толстого 16")
+    client = Client("well-known-key")
 
-    assert client.coordinates("some address") == ("37.587614", "55.753083")
+    assert client.coordinates("Москва Льва Толстого 16") == ("37.587093", "55.733969")
 
 
 def test_raises_if_coordinates_not_found(mock_api):
-    mock_api("coords_not_found", 200, geocode="unknown address")
-    client = Client("123456")
+    mock_api("coords_not_found", 200, geocode="абырвалг")
+    client = Client("well-known-key")
 
-    with pytest.raises(NothingFound, match='Nothing found for "unknown address"'):
-        client.coordinates("unknown address")
+    with pytest.raises(NothingFound, match='Nothing found for "абырвалг"'):
+        client.coordinates("абырвалг")
 
 
 def test_raises_for_invalid_api_key(mock_api):
     mock_api(
         {"statusCode": 403, "error": "Forbidden", "message": "Invalid key"},
         403,
-        geocode="some address",
+        geocode="Москва Льва Толстого 16",
         api_key="unkown-api-key",
     )
     client = Client("unkown-api-key")
 
     with pytest.raises(InvalidKey):
-        client.coordinates("some address")
+        client.coordinates("Москва Льва Толстого 16")
 
 
 def test_raises_for_unknown_response(mock_api):
-    mock_api({}, 500, geocode="some address")
-    client = Client("123456")
+    mock_api({}, 500, geocode="Москва Льва Толстого 16")
+    client = Client("well-known-key")
 
     with pytest.raises(UnexpectedResponse) as exc_info:
-        client.coordinates("some address")
+        client.coordinates("Москва Льва Толстого 16")
 
     assert "status_code=500, body=b'{}'" in exc_info.value.args

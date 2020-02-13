@@ -3,9 +3,9 @@
         "GeoObjectCollection": {
             "metaDataProperty": {
                 "GeocoderResponseMetaData": {
-                    "request": "OhjisuTho5ee",
-                    "found": "0",
-                    "results": "10"
+                    "request": "абырвалг",
+                    "results": "10",
+                    "found": "0"
                 }
             },
             "featureMember": []

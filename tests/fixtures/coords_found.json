@@ -3,9 +3,9 @@
         "GeoObjectCollection": {
             "metaDataProperty": {
                 "GeocoderResponseMetaData": {
-                    "request": "Москва, улица Новый Арбат, дом 24",
-                    "found": "1",
-                    "results": "10"
+                    "request": "Москва Льва Толстого 16",
+                    "results": "10",
+                    "found": "1"
                 }
             },
             "featureMember": [
@@ -13,18 +13,15 @@
                     "GeoObject": {
                         "metaDataProperty": {
                             "GeocoderMetaData": {
-                                "kind": "house",
-                                "text": "Россия, Москва, улица Новый Арбат, 24",
                                 "precision": "exact",
+                                "text": "Россия, Москва, улица Льва Толстого, 16",
+                                "kind": "house",
                                 "Address": {
                                     "country_code": "RU",
-                                    "postal_code": "119019",
-                                    "formatted": "Москва, улица Новый Арбат, 24",
+                                    "formatted": "Россия, Москва, улица Льва Толстого, 16",
+                                    "postal_code": "119021",
                                     "Components": [
-                                        {
-                                            "kind": "country",
-                                            "name": "Россия"
-                                        },
+                                        { "kind": "country", "name": "Россия" },
                                         {
                                             "kind": "province",
                                             "name": "Центральный федеральный округ"
@@ -39,17 +36,14 @@
                                         },
                                         {
                                             "kind": "street",
-                                            "name": "улица Новый Арбат"
+                                            "name": "улица Льва Толстого"
                                         },
-                                        {
-                                            "kind": "house",
-                                            "name": "24"
-                                        }
+                                        { "kind": "house", "name": "16" }
                                     ]
                                 },
                                 "AddressDetails": {
                                     "Country": {
-                                        "AddressLine": "Москва, улица Новый Арбат, 24",
+                                        "AddressLine": "Россия, Москва, улица Льва Толстого, 16",
                                         "CountryNameCode": "RU",
                                         "CountryName": "Россия",
                                         "AdministrativeArea": {
@@ -57,11 +51,11 @@
                                             "Locality": {
                                                 "LocalityName": "Москва",
                                                 "Thoroughfare": {
-                                                    "ThoroughfareName": "улица Новый Арбат",
+                                                    "ThoroughfareName": "улица Льва Толстого",
                                                     "Premise": {
-                                                        "PremiseNumber": "24",
+                                                        "PremiseNumber": "16",
                                                         "PostalCode": {
-                                                            "PostalCodeNumber": "119019"
+                                                            "PostalCodeNumber": "119021"
                                                         }
                                                     }
                                                 }
@@ -71,17 +65,15 @@
                                 }
                             }
                         },
+                        "name": "улица Льва Толстого, 16",
                         "description": "Москва, Россия",
-                        "name": "улица Новый Арбат, 24",
                         "boundedBy": {
                             "Envelope": {
-                                "lowerCorner": "37.583508 55.750768",
-                                "upperCorner": "37.591719 55.755398"
+                                "lowerCorner": "37.582987 55.731653",
+                                "upperCorner": "37.591198 55.736285"
                             }
                         },
-                        "Point": {
-                            "pos": "37.587614 55.753083"
-                        }
+                        "Point": { "pos": "37.587093 55.733969" }
                     }
                 }
             ]
