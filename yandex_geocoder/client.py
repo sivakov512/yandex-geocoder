@@ -11,9 +11,13 @@ class Client:
 
     :Example:
         >>> from yandex_geocoder import Client
-        >>> client = Client("api-key")
-        >>> client.coordinates('Хабаровск 60 октября 150')
-        ('135.114326', '48.47839')
+        >>> client = Client("your-api-key")
+
+        >>> coordinates = client.coordinates("Москва Льва Толстого 16")
+        >>> assert coordinates == (Decimal("37.587093"), Decimal("55.733969"))
+
+        >>> address = client.address(Decimal("37.587093"), Decimal("55.733969"))
+        >>> assert address == "Россия, Москва, улица Льва Толстого, 16"
 
     """
 
@@ -40,11 +44,7 @@ class Client:
             )
 
     def coordinates(self, address: str) -> Tuple[Decimal]:
-        """Returns a tuple of coordinates (longtitude, latitude) for passed address.
-
-        Raises `NothingFound` if nothing found.
-
-        """
+        """Fetch coordinates (longitude, latitude) for passed address."""
         data = self._request(address)["GeoObjectCollection"]["featureMember"]
 
         if not data:
@@ -56,11 +56,7 @@ class Client:
         return Decimal(longitude), Decimal(latitude)
 
     def address(self, longitude: Decimal, latitude: Decimal) -> str:
-        """Returns addres for passed coordinates.
-
-        Raises `NothingFound` if nothing found.
-
-        """
+        """Fetch address for passed coordinates."""
         got = self._request(f"{longitude},{latitude}")
         data = got["GeoObjectCollection"]["featureMember"]
 
