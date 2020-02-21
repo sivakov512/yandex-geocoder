@@ -1,0 +1,502 @@
+{
+    "response": {
+        "GeoObjectCollection": {
+            "metaDataProperty": {
+                "GeocoderResponseMetaData": {
+                    "Point": { "pos": "37.587093 55.733969" },
+                    "request": "37.587093,55.733969",
+                    "results": "10",
+                    "found": "9"
+                }
+            },
+            "featureMember": [
+                {
+                    "GeoObject": {
+                        "metaDataProperty": {
+                            "GeocoderMetaData": {
+                                "precision": "exact",
+                                "text": "Россия, Москва, улица Льва Толстого, 16",
+                                "kind": "house",
+                                "Address": {
+                                    "country_code": "RU",
+                                    "formatted": "Россия, Москва, улица Льва Толстого, 16",
+                                    "postal_code": "119021",
+                                    "Components": [
+                                        { "kind": "country", "name": "Россия" },
+                                        {
+                                            "kind": "province",
+                                            "name": "Центральный федеральный округ"
+                                        },
+                                        {
+                                            "kind": "province",
+                                            "name": "Москва"
+                                        },
+                                        {
+                                            "kind": "locality",
+                                            "name": "Москва"
+                                        },
+                                        {
+                                            "kind": "street",
+                                            "name": "улица Льва Толстого"
+                                        },
+                                        { "kind": "house", "name": "16" }
+                                    ]
+                                },
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Россия, Москва, улица Льва Толстого, 16",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Москва",
+                                            "Locality": {
+                                                "LocalityName": "Москва",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Льва Толстого",
+                                                    "Premise": {
+                                                        "PremiseNumber": "16",
+                                                        "PostalCode": {
+                                                            "PostalCodeNumber": "119021"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "name": "улица Льва Толстого, 16",
+                        "description": "Москва, Россия",
+                        "boundedBy": {
+                            "Envelope": {
+                                "lowerCorner": "37.582987 55.731653",
+                                "upperCorner": "37.591198 55.736285"
+                            }
+                        },
+                        "Point": { "pos": "37.587093 55.733969" }
+                    }
+                },
+                {
+                    "GeoObject": {
+                        "metaDataProperty": {
+                            "GeocoderMetaData": {
+                                "precision": "street",
+                                "text": "Россия, Москва, улица Льва Толстого",
+                                "kind": "street",
+                                "Address": {
+                                    "country_code": "RU",
+                                    "formatted": "Россия, Москва, улица Льва Толстого",
+                                    "Components": [
+                                        { "kind": "country", "name": "Россия" },
+                                        {
+                                            "kind": "province",
+                                            "name": "Центральный федеральный округ"
+                                        },
+                                        {
+                                            "kind": "province",
+                                            "name": "Москва"
+                                        },
+                                        {
+                                            "kind": "locality",
+                                            "name": "Москва"
+                                        },
+                                        {
+                                            "kind": "street",
+                                            "name": "улица Льва Толстого"
+                                        }
+                                    ]
+                                },
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Россия, Москва, улица Льва Толстого",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Москва",
+                                            "Locality": {
+                                                "LocalityName": "Москва",
+                                                "Thoroughfare": {
+                                                    "ThoroughfareName": "улица Льва Толстого"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "name": "улица Льва Толстого",
+                        "description": "Москва, Россия",
+                        "boundedBy": {
+                            "Envelope": {
+                                "lowerCorner": "37.582475 55.731556",
+                                "upperCorner": "37.59118 55.736868"
+                            }
+                        },
+                        "Point": { "pos": "37.58667 55.733984" }
+                    }
+                },
+                {
+                    "GeoObject": {
+                        "metaDataProperty": {
+                            "GeocoderMetaData": {
+                                "precision": "other",
+                                "text": "Россия, Москва, Центральный административный округ, район Хамовники, квартал Красная Роза",
+                                "kind": "district",
+                                "Address": {
+                                    "country_code": "RU",
+                                    "formatted": "Россия, Москва, Центральный административный округ, район Хамовники, квартал Красная Роза",
+                                    "Components": [
+                                        { "kind": "country", "name": "Россия" },
+                                        {
+                                            "kind": "province",
+                                            "name": "Центральный федеральный округ"
+                                        },
+                                        {
+                                            "kind": "province",
+                                            "name": "Москва"
+                                        },
+                                        {
+                                            "kind": "locality",
+                                            "name": "Москва"
+                                        },
+                                        {
+                                            "kind": "district",
+                                            "name": "Центральный административный округ"
+                                        },
+                                        {
+                                            "kind": "district",
+                                            "name": "район Хамовники"
+                                        },
+                                        {
+                                            "kind": "district",
+                                            "name": "квартал Красная Роза"
+                                        }
+                                    ]
+                                },
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Россия, Москва, Центральный административный округ, район Хамовники, квартал Красная Роза",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Москва",
+                                            "Locality": {
+                                                "LocalityName": "Москва",
+                                                "DependentLocality": {
+                                                    "DependentLocalityName": "Центральный административный округ",
+                                                    "DependentLocality": {
+                                                        "DependentLocalityName": "район Хамовники",
+                                                        "DependentLocality": {
+                                                            "DependentLocalityName": "квартал Красная Роза"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "name": "квартал Красная Роза",
+                        "description": "район Хамовники, Центральный административный округ, Москва, Россия",
+                        "boundedBy": {
+                            "Envelope": {
+                                "lowerCorner": "37.5834 55.731536",
+                                "upperCorner": "37.59233 55.737025"
+                            }
+                        },
+                        "Point": { "pos": "37.587721 55.734233" }
+                    }
+                },
+                {
+                    "GeoObject": {
+                        "metaDataProperty": {
+                            "GeocoderMetaData": {
+                                "precision": "other",
+                                "text": "Россия, Москва, Центральный административный округ, район Хамовники",
+                                "kind": "district",
+                                "Address": {
+                                    "country_code": "RU",
+                                    "formatted": "Россия, Москва, Центральный административный округ, район Хамовники",
+                                    "Components": [
+                                        { "kind": "country", "name": "Россия" },
+                                        {
+                                            "kind": "province",
+                                            "name": "Центральный федеральный округ"
+                                        },
+                                        {
+                                            "kind": "province",
+                                            "name": "Москва"
+                                        },
+                                        {
+                                            "kind": "locality",
+                                            "name": "Москва"
+                                        },
+                                        {
+                                            "kind": "district",
+                                            "name": "Центральный административный округ"
+                                        },
+                                        {
+                                            "kind": "district",
+                                            "name": "район Хамовники"
+                                        }
+                                    ]
+                                },
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Россия, Москва, Центральный административный округ, район Хамовники",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Москва",
+                                            "Locality": {
+                                                "LocalityName": "Москва",
+                                                "DependentLocality": {
+                                                    "DependentLocalityName": "Центральный административный округ",
+                                                    "DependentLocality": {
+                                                        "DependentLocalityName": "район Хамовники"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "name": "район Хамовники",
+                        "description": "Центральный административный округ, Москва, Россия",
+                        "boundedBy": {
+                            "Envelope": {
+                                "lowerCorner": "37.540928 55.710276",
+                                "upperCorner": "37.612236 55.750383"
+                            }
+                        },
+                        "Point": { "pos": "37.574525 55.729199" }
+                    }
+                },
+                {
+                    "GeoObject": {
+                        "metaDataProperty": {
+                            "GeocoderMetaData": {
+                                "precision": "other",
+                                "text": "Россия, Москва, Центральный административный округ",
+                                "kind": "district",
+                                "Address": {
+                                    "country_code": "RU",
+                                    "formatted": "Россия, Москва, Центральный административный округ",
+                                    "Components": [
+                                        { "kind": "country", "name": "Россия" },
+                                        {
+                                            "kind": "province",
+                                            "name": "Центральный федеральный округ"
+                                        },
+                                        {
+                                            "kind": "province",
+                                            "name": "Москва"
+                                        },
+                                        {
+                                            "kind": "locality",
+                                            "name": "Москва"
+                                        },
+                                        {
+                                            "kind": "district",
+                                            "name": "Центральный административный округ"
+                                        }
+                                    ]
+                                },
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Россия, Москва, Центральный административный округ",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Москва",
+                                            "Locality": {
+                                                "LocalityName": "Москва",
+                                                "DependentLocality": {
+                                                    "DependentLocalityName": "Центральный административный округ"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "name": "Центральный административный округ",
+                        "description": "Москва, Россия",
+                        "boundedBy": {
+                            "Envelope": {
+                                "lowerCorner": "37.51441 55.710276",
+                                "upperCorner": "37.713593 55.797108"
+                            }
+                        },
+                        "Point": { "pos": "37.614069 55.753995" }
+                    }
+                },
+                {
+                    "GeoObject": {
+                        "metaDataProperty": {
+                            "GeocoderMetaData": {
+                                "precision": "other",
+                                "text": "Россия, Москва",
+                                "kind": "locality",
+                                "Address": {
+                                    "country_code": "RU",
+                                    "formatted": "Россия, Москва",
+                                    "Components": [
+                                        { "kind": "country", "name": "Россия" },
+                                        {
+                                            "kind": "province",
+                                            "name": "Центральный федеральный округ"
+                                        },
+                                        {
+                                            "kind": "province",
+                                            "name": "Москва"
+                                        },
+                                        { "kind": "locality", "name": "Москва" }
+                                    ]
+                                },
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Россия, Москва",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Москва",
+                                            "Locality": {
+                                                "LocalityName": "Москва"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "name": "Москва",
+                        "description": "Россия",
+                        "boundedBy": {
+                            "Envelope": {
+                                "lowerCorner": "37.326051 55.49133",
+                                "upperCorner": "37.96779 55.957565"
+                            }
+                        },
+                        "Point": { "pos": "37.617635 55.755814" }
+                    }
+                },
+                {
+                    "GeoObject": {
+                        "metaDataProperty": {
+                            "GeocoderMetaData": {
+                                "precision": "other",
+                                "text": "Россия, Москва",
+                                "kind": "province",
+                                "Address": {
+                                    "country_code": "RU",
+                                    "formatted": "Россия, Москва",
+                                    "Components": [
+                                        { "kind": "country", "name": "Россия" },
+                                        {
+                                            "kind": "province",
+                                            "name": "Центральный федеральный округ"
+                                        },
+                                        { "kind": "province", "name": "Москва" }
+                                    ]
+                                },
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Россия, Москва",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия",
+                                        "AdministrativeArea": {
+                                            "AdministrativeAreaName": "Москва"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "name": "Москва",
+                        "description": "Россия",
+                        "boundedBy": {
+                            "Envelope": {
+                                "lowerCorner": "36.803259 55.142221",
+                                "upperCorner": "37.96779 56.021281"
+                            }
+                        },
+                        "Point": { "pos": "37.622504 55.753215" }
+                    }
+                },
+                {
+                    "GeoObject": {
+                        "metaDataProperty": {
+                            "GeocoderMetaData": {
+                                "precision": "other",
+                                "text": "Россия, Центральный федеральный округ",
+                                "kind": "province",
+                                "Address": {
+                                    "country_code": "RU",
+                                    "formatted": "Россия, Центральный федеральный округ",
+                                    "Components": [
+                                        { "kind": "country", "name": "Россия" },
+                                        {
+                                            "kind": "province",
+                                            "name": "Центральный федеральный округ"
+                                        }
+                                    ]
+                                },
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Россия, Центральный федеральный округ",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия"
+                                    }
+                                }
+                            }
+                        },
+                        "name": "Центральный федеральный округ",
+                        "description": "Россия",
+                        "boundedBy": {
+                            "Envelope": {
+                                "lowerCorner": "30.750266 49.556986",
+                                "upperCorner": "47.641729 59.625172"
+                            }
+                        },
+                        "Point": { "pos": "38.064718 54.873745" }
+                    }
+                },
+                {
+                    "GeoObject": {
+                        "metaDataProperty": {
+                            "GeocoderMetaData": {
+                                "precision": "other",
+                                "text": "Россия",
+                                "kind": "country",
+                                "Address": {
+                                    "country_code": "RU",
+                                    "formatted": "Россия",
+                                    "Components": [
+                                        { "kind": "country", "name": "Россия" }
+                                    ]
+                                },
+                                "AddressDetails": {
+                                    "Country": {
+                                        "AddressLine": "Россия",
+                                        "CountryNameCode": "RU",
+                                        "CountryName": "Россия"
+                                    }
+                                }
+                            }
+                        },
+                        "name": "Россия",
+                        "boundedBy": {
+                            "Envelope": {
+                                "lowerCorner": "19.484764 41.18599",
+                                "upperCorner": "191.128003 81.886117"
+                            }
+                        },
+                        "Point": { "pos": "99.505405 61.698653" }
+                    }
+                }
+            ]
+        }
+    }
+}

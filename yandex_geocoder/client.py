@@ -54,3 +54,17 @@ class Client:
         longitude, latitude = tuple(coordinates.split(" "))
 
         return Decimal(longitude), Decimal(latitude)
+
+    def address(self, longitude: Decimal, latitude: Decimal) -> str:
+        """Returns addres for passed coordinates.
+
+        Raises `NothingFound` if nothing found.
+
+        """
+        got = self._request(f"{longitude},{latitude}")
+        data = got["GeoObjectCollection"]["featureMember"]
+
+        if not data:
+            raise NothingFound(f'Nothing found for "{longitude} {latitude}"')
+
+        return data[0]["GeoObject"]["metaDataProperty"]["GeocoderMetaData"]["text"]
