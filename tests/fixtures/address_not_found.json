@@ -3,7 +3,8 @@
         "GeoObjectCollection": {
             "metaDataProperty": {
                 "GeocoderResponseMetaData": {
-                    "request": "абырвалг",
+                    "Point": { "pos": "-22.412907 55.733969" },
+                    "request": "337.587093,55.733969",
                     "results": "10",
                     "found": "0"
                 }

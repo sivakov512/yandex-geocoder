@@ -1,3 +1,4 @@
 [flake8]
+exclude = .env
 inline-quotes = "
-
+max-line-length = 88
