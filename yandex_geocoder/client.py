@@ -43,7 +43,7 @@ class Client:
                 f"status_code={response.status_code}, body={response.content}"
             )
 
-    def coordinates(self, address: str) -> Tuple[Decimal]:
+    def coordinates(self, address: str) -> Tuple[Decimal, ...]:
         """Fetch coordinates (longitude, latitude) for passed address."""
         data = self._request(address)["GeoObjectCollection"]["featureMember"]
 
