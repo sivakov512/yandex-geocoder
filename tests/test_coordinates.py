@@ -1,16 +1,12 @@
+import typing
 from decimal import Decimal
 
 import pytest
 
-from yandex_geocoder import (
-    Client,
-    InvalidKey,
-    NothingFound,
-    UnexpectedResponse,
-)
+from yandex_geocoder import Client, InvalidKey, NothingFound, UnexpectedResponse
 
 
-def test_returns_found_coordinates(mock_api):
+def test_returns_found_coordinates(mock_api: typing.Any) -> None:
     mock_api("coords_found", 200, geocode="Москва Льва Толстого 16")
     client = Client("well-known-key")
 
@@ -20,7 +16,7 @@ def test_returns_found_coordinates(mock_api):
     )
 
 
-def test_raises_if_coordinates_not_found(mock_api):
+def test_raises_if_coordinates_not_found(mock_api: typing.Any) -> None:
     mock_api("coords_not_found", 200, geocode="абырвалг")
     client = Client("well-known-key")
 
@@ -28,7 +24,7 @@ def test_raises_if_coordinates_not_found(mock_api):
         client.coordinates("абырвалг")
 
 
-def test_raises_for_invalid_api_key(mock_api):
+def test_raises_for_invalid_api_key(mock_api: typing.Any) -> None:
     mock_api(
         {"statusCode": 403, "error": "Forbidden", "message": "Invalid key"},
         403,
@@ -41,7 +37,7 @@ def test_raises_for_invalid_api_key(mock_api):
         client.coordinates("Москва Льва Толстого 16")
 
 
-def test_raises_for_unknown_response(mock_api):
+def test_raises_for_unknown_response(mock_api: typing.Any) -> None:
     mock_api({}, 500, geocode="Москва Льва Толстого 16")
     client = Client("well-known-key")
 
