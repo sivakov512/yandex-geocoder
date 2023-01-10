@@ -1,40 +1,96 @@
 name: test
 
-on: [push]
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  POETRY_VIRTUALENVS_IN_PROJECT: "true"
+  POETRY_VERSION: "1.3.1"
+  MAIN_PYTHON_VERSION: "3.11"
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+          echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+
+      - name: Cache Poetry cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: poetry-cache-${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ env.MAIN_PYTHON_VERSION }}-${{ env.POETRY_VERSION }}
+
+      - name: Cache packages
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: poetry-packages-${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ env.MAIN_PYTHON_VERSION }}-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: poetry-packages-refs/heads/master-${{ github.workflow }}-${{ github.job }}-${{ env.MAIN_PYTHON_VERSION }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Lint
+        run: make lint
+
   test:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 4
+      fail-fast: false
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: ["3.9", "3.10", "3.11"]
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v1
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install coveralls -r requirements.txt
+      - name: Install Poetry
+        run: |
+          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+          echo "$HOME/.poetry/bin" >> $GITHUB_PATH
 
-    - name: Lint with flake8
-      run: flake8
+      - name: Cache Poetry cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: poetry-cache-${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ matrix.python-version }}-${{ env.POETRY_VERSION }}
 
-    - name: Check with black
-      run: black --check ./
+      - name: Cache packages
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: poetry-packages-${{ github.ref }}-${{ github.workflow }}-${{ github.job }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: poetry-packages-refs/heads/master-${{ github.workflow }}-${{ github.job }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
-    - name: Test with pytest
-      run: pytest --cov=yandex_geocoder
+      - name: Install dependencies
+        run: make install
 
-    - name: Upload coverage
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-        COVERALLS_SERVICE_NAME: "GitHub Actions"
-        COVERALLS_FLAG_NAME: Python ${{ matrix.python-version }}
-      run: CI_BRANCH=${GITHUB_REF#"refs/heads/"} coveralls
+      - name: Test
+        run: make test-with-coverage
+
+      - name: Upload coverage
+        if: matrix.python-version == ${{ env.MAIN_PYTHON_VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        run: make upload-coverage

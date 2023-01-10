@@ -1,11 +1,15 @@
+__all__ = ["Client"]
+
+import dataclasses
+import typing
 from decimal import Decimal
-from typing import Tuple
 
 import requests
 
 from .exceptions import InvalidKey, NothingFound, UnexpectedResponse
 
 
+@dataclasses.dataclass
 class Client:
     """Yandex geocoder API client.
 
@@ -25,42 +29,40 @@ class Client:
 
     api_key: str
 
-    def __init__(self, api_key: str):
-        self.api_key = api_key
-
-    def _request(self, address: str) -> dict:
+    def _request(self, address: str) -> dict[str, typing.Any]:
         response = requests.get(
             "https://geocode-maps.yandex.ru/1.x/",
             params=dict(format="json", apikey=self.api_key, geocode=address),
         )
 
         if response.status_code == 200:
-            return response.json()["response"]
+            got: dict[str, typing.Any] = response.json()["response"]
+            return got
         elif response.status_code == 403:
             raise InvalidKey()
         else:
             raise UnexpectedResponse(
-                f"status_code={response.status_code}, body={response.content}"
+                f"status_code={response.status_code}, body={response.content!r}"
             )
 
-    def coordinates(self, address: str) -> Tuple[Decimal, ...]:
+    def coordinates(self, address: str) -> tuple[Decimal, ...]:
         """Fetch coordinates (longitude, latitude) for passed address."""
         data = self._request(address)["GeoObjectCollection"]["featureMember"]
 
         if not data:
             raise NothingFound(f'Nothing found for "{address}" not found')
 
-        coordinates = data[0]["GeoObject"]["Point"]["pos"]  # type: str
+        coordinates: str = data[0]["GeoObject"]["Point"]["pos"]
         longitude, latitude = tuple(coordinates.split(" "))
 
         return Decimal(longitude), Decimal(latitude)
 
     def address(self, longitude: Decimal, latitude: Decimal) -> str:
         """Fetch address for passed coordinates."""
-        got = self._request(f"{longitude},{latitude}")
-        data = got["GeoObjectCollection"]["featureMember"]
+        data = self._request(f"{longitude},{latitude}")["GeoObjectCollection"]["featureMember"]
 
         if not data:
             raise NothingFound(f'Nothing found for "{longitude} {latitude}"')
 
-        return data[0]["GeoObject"]["metaDataProperty"]["GeocoderMetaData"]["text"]
+        got: str = data[0]["GeoObject"]["metaDataProperty"]["GeocoderMetaData"]["text"]
+        return got
