@@ -14,7 +14,7 @@ python = "^3.9"
 requests = "^2.28.1"
 
 [tool.poetry.group.dev.dependencies]
-flake8 = "^6.0.0"
+flake8 = "^7.0.0"
 flake8-debugger = "^4.1.2"
 flake8-isort = "^6.0.0"
 flake8-print = "^5.0.0"
