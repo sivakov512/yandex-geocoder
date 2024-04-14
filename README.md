@@ -10,6 +10,8 @@ Get address coordinates via Yandex geocoder
 
 ## Installation
 
+**Synchronous version:**
+
 Install it via `pip` tool:
 
 ```shell
@@ -22,15 +24,29 @@ or Poetry:
 poetry add yandex-geocoder
 ```
 
+**Asynchronous version:**
+
+```shell
+pip install "yandex-geocoder[async]"
+```
+
+or Poetry:
+
+```shell
+poetry add "yandex-geocoder[async]"
+```
+
 ## Usage example
 
-Yandex Geocoder requires an API developer key, you can get it [here](https://developer.tech.yandex.ru/services/) to use this library.
+Yandex Geocoder requires an API developer key, you can get it [here](https://developer.tech.yandex.ru/services/) to use
+this library.
+
+**Synchronous version:**
 
 ```python
 from decimal import Decimal
 
 from yandex_geocoder import Client
-
 
 client = Client("your-api-key")
 
@@ -39,6 +55,28 @@ assert coordinates == (Decimal("37.587093"), Decimal("55.733969"))
 
 address = client.address(Decimal("37.587093"), Decimal("55.733969"))
 assert address == "Россия, Москва, улица Льва Толстого, 16"
+```
+
+**Asynchronous version:**
+
+```python
+import asyncio
+from decimal import Decimal
+
+from yandex_geocoder import AsyncClient
+
+
+async def main():
+    aclient = AsyncClient(api_key="your-api-key")
+
+    coordinates = await aclient.coordinates("Москва Льва Толстого 16")
+    assert coordinates == (Decimal("37.587093"), Decimal("55.733974"))
+    address = await aclient.address(Decimal("37.587093"), Decimal("55.733974"))
+    assert address == "Россия, Москва, улица Льва Толстого, 16"
+
+
+if __name__ == '__main__':
+    asyncio.run(main())
 ```
 
 ## Development and contribution
