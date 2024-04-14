@@ -12,6 +12,7 @@ repository = "https://github.com/sivakov512/yandex-geocoder"
 [tool.poetry.dependencies]
 python = "^3.9"
 requests = "^2.28.1"
+aiohttp = { version = "^3.9.4", optional = true }
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.0.0"
@@ -30,6 +31,9 @@ pytest-cov = "^5.0.0"
 coveralls = "^3.3.1"
 types-requests = "^2.28.11.7"
 requests-mock = "^1.10.0"
+
+[tool.poetry.extras]
+async = ["aiohttp"]
 
 [build-system]
 requires = ["poetry-core"]
