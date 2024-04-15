@@ -31,8 +31,8 @@ class AsyncClient:
     async def _request(self, address: str) -> typing.Dict[str, typing.Any]:
         async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(ssl=False)) as session:
             async with session.get(
-                    url="https://geocode-maps.yandex.ru/1.x/",
-                    params=dict(format="json", apikey=self.api_key, geocode=address),
+                url="https://geocode-maps.yandex.ru/1.x/",
+                params=dict(format="json", apikey=self.api_key, geocode=address),
             ) as response:
                 if response.status == 200:
                     a: typing.Dict[str, typing.Any] = (await response.json())["response"]
@@ -40,9 +40,8 @@ class AsyncClient:
                 elif response.status == 403:
                     raise InvalidKey()
                 else:
-                    raise UnexpectedResponse(
-                        f"status_code={response.status}, body={response.content}"
-                    )
+                    body = await response.content.read()
+                    raise UnexpectedResponse(f"status_code={response.status}, body={body!r}")
 
     async def coordinates(self, address: str) -> typing.Tuple[Decimal, ...]:
         """Fetch coordinates (longitude, latitude) for passed address."""
